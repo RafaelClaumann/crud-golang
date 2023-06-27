@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/rafaelclaumann/crud-golang/src/configuration/rest_error"
 )
 
 func GetUserById(c *gin.Context) {
@@ -29,13 +30,11 @@ func CreateUser(c *gin.Context) {
 }
 
 func UpdateUser(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"UpdateUser": "update-user",
-	})
+	err := rest_error.NewInternalServerError("[UpdateUser] not implemented yet")
+	c.JSON(http.StatusInternalServerError, err)
 }
 
 func DeleteUser(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"DeleteUser": "delete-user",
-	})
+	err := rest_error.NewInternalServerError("[DeleteUser] not implemented yet")
+	c.JSON(http.StatusInternalServerError, err)
 }
